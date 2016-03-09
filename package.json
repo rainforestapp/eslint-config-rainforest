@@ -1,0 +1,20 @@
+{
+  "name": "eslint-config-rainforest",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "repository": "rainforestapp/eslint-config-rainforest",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rainforestapp/eslint-config-rainforest.git"
+  },
+  "author": "Julian Krispel-Samsel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rainforestapp/eslint-config-rainforest/issues"
+  },
+  "homepage": "https://github.com/rainforestapp/eslint-config-rainforest#readme"
+}
