@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-rainforest",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Rainforest Eslint Config",
   "main": "index.js",
   "repository": "rainforestapp/eslint-config-rainforest",
   "scripts": {
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/rainforestapp/eslint-config-rainforest/issues"
   },
-  "homepage": "https://github.com/rainforestapp/eslint-config-rainforest#readme"
+  "homepage": "https://github.com/rainforestapp/eslint-config-rainforest#readme",
+  "devDependencies": {
+    "babel-eslint": "4.1.3",
+    "eslint-plugin-babel": "2.2.0",
+    "eslint-plugin-react": "3.5.1",
+    "eslint-config-airbnb": "0.1.0",
+    "eslint": "1.5.1"
+  }
 }
