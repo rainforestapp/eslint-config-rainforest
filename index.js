@@ -11,7 +11,15 @@ module.exports = {
     "flow-vars/define-flow-type": 1,
     "flow-vars/use-flow-type": 1,
     "valid-jsdoc": 2,
-    "react/sort-comp": 0,
+    "react/sort-comp": [1, {
+      order: [
+        'static-methods',
+        'lifecycle',
+        'props',
+        'everything-else',
+        'render'
+      ]
+    }]
 
 
     "one-var": [2, {
