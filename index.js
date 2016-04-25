@@ -8,7 +8,19 @@ module.exports = {
     "commonjs": true
   },
   "rules": {
+    "flow-vars/define-flow-type": 1,
+    "flow-vars/use-flow-type": 1,
     "valid-jsdoc": 2,
+    "react/sort-comp": [1, {
+      order: [
+        'static-methods',
+        'lifecycle',
+        'props',
+        'everything-else',
+        'render'
+      ]
+    }]
+
 
     "one-var": [2, {
       "uninitialized": "always",
@@ -25,6 +37,7 @@ module.exports = {
     "new-cap": [2, {"capIsNewExceptions": ["Iterable", "Seq", "Collection", "Map", "OrderedMap", "List", "Stack", "Set", "OrderedSet", "Record", "Range", "Repeat"]}]
   },
   "plugins": [
+    "flow-vars",
     "react",
     "babel"
   ],
