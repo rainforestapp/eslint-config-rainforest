@@ -19,7 +19,7 @@ module.exports = {
         'everything-else',
         'render'
       ]
-    }]
+    }],
 
 
     "one-var": [2, {
