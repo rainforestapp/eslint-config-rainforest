@@ -32,6 +32,7 @@ module.exports = {
     "react/react-in-jsx-scope": 2,
     "react/wrap-multilines": 2,
 
+    "no-underscore-dangle": 0,
     "comma-dangle": [2, "always-multiline"],
     "id-length": [2, {"exceptions": ["_", "$"]}],
     "new-cap": [2, {"capIsNewExceptions": ["Iterable", "Seq", "Collection", "Map", "OrderedMap", "List", "Stack", "Set", "OrderedSet", "Record", "Range", "Repeat"]}]
