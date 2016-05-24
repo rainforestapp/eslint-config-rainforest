@@ -21,6 +21,7 @@ module.exports = {
       ]
     }],
 
+    "one-var-declaration-per-line": [2, "initializations"],
 
     "one-var": [2, {
       "uninitialized": "always",
