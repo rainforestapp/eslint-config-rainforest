@@ -30,6 +30,7 @@ module.exports = {
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/no-multi-comp": 0,
+    "react/prop-types": 0,
     "react/react-in-jsx-scope": 2,
     "react/wrap-multilines": 2,
 
