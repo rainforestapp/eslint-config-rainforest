@@ -18,7 +18,6 @@
   "homepage": "https://github.com/rainforestapp/eslint-config-rainforest#readme",
   "dependencies": {
     "eslint-config-airbnb": "9.0.1",
-    "eslint": "2.9.0",
     "eslint-plugin-flow-vars": "0.3.0",
     "babel-eslint": "6.0.4",
     "eslint-plugin-babel": "2.2.0",
