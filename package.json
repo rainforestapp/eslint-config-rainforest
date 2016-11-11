@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-rainforest",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Rainforest Eslint Config",
   "main": "index.js",
   "repository": {
@@ -20,7 +20,7 @@
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-babel": "2.2.0",
     "eslint-plugin-flow-vars": "0.3.0",
-    "eslint-plugin-import": "^1.9.0",
+    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1"
   },
