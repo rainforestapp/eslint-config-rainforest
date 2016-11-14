@@ -46,6 +46,9 @@ module.exports = {
     'import/no-duplicates': 1,
     'import/first': 0,
 
+    // We disable this rule because often we use HOCs to wrap our default exports
+    'import/no-named-as-default': 0,
+
     // We want to be able to attach event handlers to any elements
     'jsx-a11y/no-static-element-interactions': 0,
   },
