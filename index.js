@@ -43,15 +43,19 @@ module.exports = {
     // the import plugin equivalent which differentiates between normal imports
     // and flow type imports
     'no-duplicate-imports': 0,
-    'import/no-duplicates': 1
+    'import/no-duplicates': 1,
+    'import/first': 0,
+
+    // We want to be able to attach event handlers to any elements
+    'jsx-a11y/no-static-element-interactions': 0,
   },
-  'plugins': [
+  plugins: [
     'flow-vars',
     'react',
     'babel',
-    'import'
+    'import',
   ],
-  'globals': {
-    'analytics': true
-  }
-}
+  globals: {
+    analytics: true,
+  },
+};
