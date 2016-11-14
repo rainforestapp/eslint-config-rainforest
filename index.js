@@ -32,7 +32,7 @@ module.exports = {
     'react/no-multi-comp': 0,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 2,
-    'react/wrap-multilines': 2,
+    'react/jsx-wrap-multilines': 2,
 
     'no-underscore-dangle': 0,
     'comma-dangle': [2, 'always-multiline'],
