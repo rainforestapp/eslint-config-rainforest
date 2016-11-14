@@ -1,13 +1,16 @@
 module.exports = {
-  'parser': 'babel-eslint',
-  'extends': 'airbnb',
-  'env': {
-    'browser': true,
-    'jest': true,
-    'jasmine': true,
-    'commonjs': true
+  extends: 'airbnb',
+
+  parser: 'babel-eslint',
+
+  env: {
+    browser: true,
+    jest: true,
+    jasmine: true,
+    commonjs: true,
   },
-  'rules': {
+
+  rules: {
     'flow-vars/define-flow-type': 1,
     'flow-vars/use-flow-type': 1,
     'valid-jsdoc': 2,
@@ -17,14 +20,14 @@ module.exports = {
         'lifecycle',
         'props',
         'everything-else',
-        'render'
-      ]
+        'render',
+      ],
     }],
 
     'one-var-declaration-per-line': [2, 'initializations'],
 
     'one-var': [2, {
-      'uninitialized': 'always',
+      uninitialized: 'always',
     }],
 
     'react/jsx-uses-react': 2,
@@ -36,8 +39,8 @@ module.exports = {
 
     'no-underscore-dangle': 0,
     'comma-dangle': [2, 'always-multiline'],
-    'id-length': [2, {'exceptions': ['_', '$']}],
-    'new-cap': [2, {'capIsNewExceptions': ['Iterable', 'Seq', 'Collection', 'Map', 'OrderedMap', 'List', 'Stack', 'Set', 'OrderedSet', 'Record', 'Range', 'Repeat']}],
+    'id-length': [2, { exceptions: ['_', '$'] }],
+    'new-cap': [2, { capIsNewExceptions: ['Iterable', 'Seq', 'Collection', 'Map', 'OrderedMap', 'List', 'Stack', 'Set', 'OrderedSet', 'Record', 'Range', 'Repeat'] }],
 
     // we're disabling the default no-duplicate-imports rule and enabling
     // the import plugin equivalent which differentiates between normal imports
@@ -55,7 +58,6 @@ module.exports = {
   plugins: [
     'flow-vars',
     'react',
-    'babel',
     'import',
   ],
   globals: {
