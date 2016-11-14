@@ -8,7 +8,8 @@
     "url": "git+https://github.com/rainforestapp/eslint-config-rainforest.git"
   },
   "scripts": {
-    "test": "./node_modules/eslint/bin/eslint.js ./index.js --debug"
+    "test": "./node_modules/eslint/bin/eslint.js ./index.js --debug",
+    "distribute": "git push origin master && npm publish"
   },
   "author": "Julian Krispel-Samsel",
   "license": "MIT",
