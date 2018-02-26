@@ -41,7 +41,7 @@ module.exports = {
     'comma-dangle': [2, 'always-multiline'],
     'id-length': [2, { exceptions: ['_', '$'] }],
     'new-cap': [2, { capIsNewExceptions: ['Iterable', 'Seq', 'Collection', 'Map', 'OrderedMap', 'List', 'Stack', 'Set', 'OrderedSet', 'Record', 'Range', 'Repeat'] }],
-    'arrow-body-style': 0ys,
+    'arrow-body-style': 0,
     
     // we're disabling the default no-duplicate-imports rule and enabling
     // the import plugin equivalent which differentiates between normal imports
