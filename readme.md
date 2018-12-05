@@ -2,8 +2,4 @@ Eslint Config at Rainforest
 
 To install the eslint plugin simply execute in your terminal:
 
-`npm install eslint-config-rainforest --save-dev`
-
-Make sure you also have eslint and babel-eslint installed, they are required for this config to work.
-
-`npm install eslint babel-eslint --save-dev`
+`yarn add -D eslint-config-rainforest eslint babel-eslint eslint-config-prettier eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react prettier`
