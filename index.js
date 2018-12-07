@@ -1,26 +1,81 @@
+// taken from https://github.com/facebook/create-react-app/blob/7513481491eb14b3ec7bd5ba074a31ea13bca7a5/packages/eslint-config-react-app/index.js
+// but we use "ERROR"
+
+// The ESLint browser environment defines all browser globals as valid,
+// even though most people don't know some of them exist (e.g. `name` or `status`).
+// This is dangerous as it hides accidentally undefined variables.
+// We blacklist the globals that we deem potentially confusing.
+// To use them, explicitly reference them, e.g. `window.name` or `window.status`.
+var restrictedGlobals = require('confusing-browser-globals');
 module.exports = {
+  root: true,
+  parser: 'babel-eslint',
+  plugins: ['flowtype', 'react', 'import', 'babel'],
   extends: [
-    'airbnb',
-    'plugin:flowtype/recommended',
     'plugin:prettier/recommended',
     'prettier/flowtype',
     'prettier/react'
   ],
 
-  parser: 'babel-eslint',
-
   env: {
     browser: true,
+    commonjs: true,
+    es6: true,
     jest: true,
-    jasmine: true,
-    commonjs: true
+    node: true
   },
 
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
   rules: {
     'prettier/prettier': ['error', { singleQuote: true }],
-    'flowtype/define-flow-type': 1,
-    'flowtype/use-flow-type': 1,
-    'valid-jsdoc': 2,
+
+    // https://github.com/gajus/eslint-plugin-flowtype
+    'flowtype/define-flow-type': 'warn',
+    'flowtype/use-flow-type': 'warn',
+    'flowtype/require-valid-file-annotation': 'error',
+    'flowtype/no-types-missing-file-annotation': 'error',
+
+    // https://github.com/benmosher/eslint-plugin-import/tree/master/docs/rules
+    // we're disabling the default no-duplicate-imports rule and enabling
+    // the import plugin equivalent which differentiates between normal imports
+    // and flow type imports
+    'import/no-duplicates': 'error',
+    'import/first': 'warn',
+    'import/no-amd': 'error',
+    'import/no-webpack-loader-syntax': 'error',
+
+    // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
+    'react/forbid-foreign-prop-types': ['error', { allowInPropTypes: true }],
+    'react/jsx-no-comment-textnodes': 'error',
+    'react/jsx-no-duplicate-props': ['error', { ignoreCase: true }],
+    'react/jsx-no-target-blank': 'error',
+    'react/jsx-no-undef': 'error',
+    'react/jsx-pascal-case': [
+      'error',
+      {
+        allowAllCaps: true,
+        ignore: []
+      }
+    ],
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    'react/no-danger-with-children': 'error',
+    'react/no-unused-state': 'error',
+    // Disabled because of undesirable warnings
+    // See https://github.com/facebook/create-react-app/issues/5204 for
+    // blockers until its re-enabled
+    // 'react/no-deprecated': 'error',
+    'react/no-direct-mutation-state': 'error',
+    'react/no-is-mounted': 'error',
+    'react/react-in-jsx-scope': 'error',
+    'react/require-render-return': 'error',
+    'react/style-prop-object': 'error',
     'react/sort-comp': [
       1,
       {
@@ -33,136 +88,174 @@ module.exports = {
         ]
       }
     ],
-
-    'one-var': [
-      2,
-      {
-        uninitialized: 'always'
-      }
-    ],
-
-    'react/self-closing-comp': 0, // https://github.com/prettier/prettier/issues/4223#issuecomment-409728137
-    'react/jsx-uses-react': 2,
-    'react/jsx-uses-vars': 2,
-    'react/no-multi-comp': 0,
-    'react/prop-types': 0,
-    'react/react-in-jsx-scope': 2,
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    'react/destructuring-assignment': 0,
-    'react/require-default-props': 0,
-    'react/no-access-state-in-setstate': 1,
-    'react/button-has-type': 1,
+    // 'react/self-closing-comp': 0, // https://github.com/prettier/prettier/issues/4223#issuecomment-409728137
+    'react/no-access-state-in-setstate': 'error',
     // this triggers a lot because the props are used inside hocs
-    'react/no-unused-prop-types': 1,
-    'react/no-array-index-key': 1,
+    'react/no-unused-prop-types': 'warn',
     // we still have usage of this inside hoc, which can't use callback refs (the recommended alternative)
-    'react/no-find-dom-node': 1,
+    'react/no-find-dom-node': 'warn',
 
-    'no-underscore-dangle': 0,
-    'id-length': [2, { exceptions: ['_', '$'] }],
-    'new-cap': [
-      2,
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
+    'jsx-a11y/accessible-emoji': 'warn',
+    'jsx-a11y/alt-text': 'warn',
+    'jsx-a11y/anchor-has-content': 'warn',
+    'jsx-a11y/anchor-is-valid': [
+      'warn',
       {
-        capIsNewExceptions: [
-          'Iterable',
-          'Seq',
-          'Collection',
-          'Map',
-          'OrderedMap',
-          'List',
-          'Stack',
-          'Set',
-          'OrderedSet',
-          'Record',
-          'Range',
-          'Repeat'
-        ]
+        aspects: ['noHref', 'invalidHref']
       }
     ],
-    'arrow-body-style': 0,
-    'implicit-arrow-linebreak': 0,
-    'no-useless-computed-key': 0,
-    'quote-props': 0,
-    'prefer-promise-rejecterrors': 0,
-    'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
-    'prefer-destructuring': 1,
-    // we're disabling the default no-duplicate-imports rule and enabling
-    // the import plugin equivalent which differentiates between normal imports
-    // and flow type imports
-    // 'no-duplicate-imports': 0,
-    'import/no-duplicates': 2,
-    'import/prefer-default-export': 1,
-    'import/first': 0,
+    'jsx-a11y/aria-activedescendant-has-tabindex': 'warn',
+    'jsx-a11y/aria-props': 'warn',
+    'jsx-a11y/aria-proptypes': 'warn',
+    'jsx-a11y/aria-role': 'warn',
+    'jsx-a11y/aria-unsupported-elements': 'warn',
+    'jsx-a11y/heading-has-content': 'warn',
+    'jsx-a11y/iframe-has-title': 'warn',
+    'jsx-a11y/img-redundant-alt': 'warn',
+    'jsx-a11y/no-access-key': 'warn',
+    'jsx-a11y/no-distracting-elements': 'warn',
+    'jsx-a11y/no-redundant-roles': 'warn',
+    'jsx-a11y/role-has-required-aria-props': 'warn',
+    'jsx-a11y/role-supports-aria-props': 'warn',
+    'jsx-a11y/scope': 'warn',
 
-    // We disable this rule because often we use HOCs to wrap our default exports
-    'import/no-named-as-default': 0,
-
-    // warn on all accessibility rules
-    'jsx-a11y/accessible-emoji': 1,
-    'jsx-a11y/alt-text': 1,
-    'jsx-a11y/anchor-has-content': 1,
-    'jsx-a11y/anchor-is-valid': 1,
-    'jsx-a11y/aria-activedescendant-has-tabindex': 1,
-    'jsx-a11y/aria-props': 1,
-    'jsx-a11y/aria-proptypes': 1,
-    'jsx-a11y/aria-role': 1,
-    'jsx-a11y/aria-unsupported-elements': 1,
-    'jsx-a11y/click-events-have-key-events': 1,
-    'jsx-a11y/heading-has-content': 1,
-    'jsx-a11y/html-has-lang': 1,
-    'jsx-a11y/iframe-has-title': 1,
-    'jsx-a11y/img-redundant-alt': 1,
-    'jsx-a11y/interactive-supports-focus': [
-      1,
+    // http://eslint.org/docs/rules/
+    'array-callback-return': 'error',
+    'default-case': ['error', { commentPattern: '^no default$' }],
+    'dot-location': ['error', 'property'],
+    eqeqeq: ['error', 'smart'],
+    'new-parens': 'error',
+    'no-array-constructor': 'error',
+    'no-caller': 'error',
+    'no-cond-assign': ['error', 'except-parens'],
+    'no-const-assign': 'error',
+    'no-control-regex': 'error',
+    'no-delete-var': 'error',
+    'no-dupe-args': 'error',
+    'no-dupe-class-members': 'error',
+    'no-dupe-keys': 'error',
+    'no-duplicate-case': 'error',
+    'no-empty-character-class': 'error',
+    'no-empty-pattern': 'error',
+    'no-eval': 'error',
+    'no-ex-assign': 'error',
+    'no-extend-native': 'error',
+    'no-extra-bind': 'error',
+    'no-extra-label': 'error',
+    'no-fallthrough': 'error',
+    'no-func-assign': 'error',
+    'no-implied-eval': 'error',
+    'no-invalid-regexp': 'error',
+    'no-iterator': 'error',
+    'no-label-var': 'error',
+    'no-labels': ['error', { allowLoop: true, allowSwitch: false }],
+    'no-lone-blocks': 'error',
+    'no-loop-func': 'error',
+    'no-mixed-operators': [
+      'error',
       {
-        tabbable: [
-          'button',
-          'checkbox',
-          'link',
-          'progressbar',
-          'searchbox',
-          'slider',
-          'spinbutton',
-          'switch',
-          'textbox'
-        ]
+        groups: [
+          ['&', '|', '^', '~', '<<', '>>', '>>>'],
+          ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+          ['&&', '||'],
+          ['in', 'instanceof']
+        ],
+        allowSamePrecedence: false
       }
     ],
-    'jsx-a11y/label-has-for': 1,
-    'jsx-a11y/label-has-associated-control': 1,
-    'jsx-a11y/media-has-caption': 1,
-    'jsx-a11y/mouse-events-have-key-events': 1,
-    'jsx-a11y/no-access-key': 1,
-    'jsx-a11y/no-autofocus': 1,
-    'jsx-a11y/no-distracting-elements': 1,
-    'jsx-a11y/no-interactive-element-to-noninteractive-role': 1,
-    'jsx-a11y/no-noninteractive-element-interactions': [
-      1,
+    'no-multi-str': 'error',
+    'no-native-reassign': 'error',
+    'no-negated-in-lhs': 'error',
+    'no-new-func': 'error',
+    'no-new-object': 'error',
+    'no-new-symbol': 'error',
+    'no-new-wrappers': 'error',
+    'no-obj-calls': 'error',
+    'no-octal': 'error',
+    'no-octal-escape': 'error',
+    'no-redeclare': 'error',
+    'no-regex-spaces': 'error',
+    'no-restricted-syntax': ['error', 'WithStatement'],
+    'no-script-url': 'error',
+    'no-self-assign': 'error',
+    'no-self-compare': 'error',
+    'no-sequences': 'error',
+    'no-shadow-restricted-names': 'error',
+    'no-sparse-arrays': 'error',
+    'no-template-curly-in-string': 'error',
+    'no-this-before-super': 'error',
+    'no-throw-literal': 'error',
+    'no-undef': 'error',
+    'no-restricted-globals': [2].concat(restrictedGlobals),
+    'no-unexpected-multiline': 'error',
+    'no-unreachable': 'error',
+    'no-unused-expressions': [
+      'error',
       {
-        body: ['onError', 'onLoad'],
-        iframe: ['onError', 'onLoad'],
-        img: ['onError', 'onLoad']
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true
       }
     ],
-    'jsx-a11y/no-noninteractive-element-to-interactive-role': 1,
-    'jsx-a11y/no-noninteractive-tabindex': 1,
-    'jsx-a11y/no-onchange': 1,
-    'jsx-a11y/no-redundant-roles': 1,
-    // We want to be able to attach event handlers to any elements
-    'jsx-a11y/no-static-element-interactions': 1,
-    'jsx-a11y/role-has-required-aria-props': 1,
-    'jsx-a11y/role-supports-aria-props': 1,
-    'jsx-a11y/scope': 1,
-    'jsx-a11y/tabindex-no-positive': 1
-  },
-  plugins: ['flowtype', 'react', 'import', 'babel'],
-  globals: {
-    analytics: true
+    'no-unused-labels': 'error',
+    'no-unused-vars': [
+      'error',
+      {
+        args: 'none',
+        ignoreRestSiblings: true
+      }
+    ],
+    'no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: false,
+        variables: false
+      }
+    ],
+    'no-useless-concat': 'error',
+    'no-useless-constructor': 'error',
+    'no-useless-escape': 'error',
+    'no-useless-rename': [
+      'error',
+      {
+        ignoreDestructuring: false,
+        ignoreImport: false,
+        ignoreExport: false
+      }
+    ],
+    'no-with': 'error',
+    'no-whitespace-before-property': 'error',
+    'require-yield': 'error',
+    'rest-spread-spacing': ['error', 'never'],
+    strict: ['error', 'never'],
+    'unicode-bom': ['error', 'never'],
+    'use-isnan': 'error',
+    'valid-typeof': 'error',
+    'no-restricted-properties': [
+      'error',
+      {
+        object: 'require',
+        property: 'ensure',
+        message:
+          'Please use import() instead. More info: https://facebook.github.io/create-react-app/docs/code-splitting'
+      },
+      {
+        object: 'System',
+        property: 'import',
+        message:
+          'Please use import() instead. More info: https://facebook.github.io/create-react-app/docs/code-splitting'
+      }
+    ],
+    'getter-return': 'error'
   },
   overrides: [
     {
       files: ['**/__tests__/*.js'],
-      rules: { 'prefer-promise-reject-errors': 0 }
+      rules: {
+        'import/first': 'off'
+      }
     }
   ]
 };
