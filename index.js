@@ -10,7 +10,7 @@ var restrictedGlobals = require('confusing-browser-globals');
 module.exports = {
   root: true,
   parser: 'babel-eslint',
-  plugins: ['flowtype', 'react', 'import', 'babel'],
+  plugins: ['flowtype', 'react', 'import', 'jsx-a11y'],
   extends: [
     'plugin:prettier/recommended',
     'prettier/flowtype',
