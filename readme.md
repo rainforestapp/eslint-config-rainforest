@@ -21,3 +21,11 @@ add these to your settings file:
 
 Also in projects that use flow, it's useful to install [flow for vscode](https://github.com/flowtype/flow-for-vscode) and turn off the built in typescript support because it will be confusing as it will show the inferred typescript types alongside flow on hover, follow the gif below:
 ![](https://raw.githubusercontent.com/flowtype/flow-for-vscode/1ae5552d149bb41c8173dee552a2975b336e7beb/readme/flow-disable-tsc.gif)
+
+## Webstorm
+The setup should be picked up automatically from the repository's `.eslint.rc.*` and `package.json`. Here is where to look in case something doesn't work as expected:
+**Eslint** - Choose `Webstorm / Preferences` from the main menu and type `eslint` into the seach bar, this will show up all related config sections:
+1. `Languages & Frameworks / JavaScript / Code Quality Tools / ESLint` is the main lint config section. Make sure the `Enable` checkbox on top is checked, the Node interpreter is set to the Project node version, and the ESLint package is from the local `node_modules` folder. The `Automatic search` option from the `Configuration file` section is working fine for most scenarios.
+2. `Keymap` allows you to setup key shortcuts for fixing lint problems.
+
+**Prettier** - An official Prettier plugin is available starting from version 2018.1. Again go to Preferences but write `prettier` this time. The configuration is under `Languages & Frameworks / JavaScript / Prettier` and the only thing you can do is to point the IDE to the related package folder.
