@@ -22,6 +22,12 @@ add these to your settings file:
 Also in projects that use flow, it's useful to install [flow for vscode](https://github.com/flowtype/flow-for-vscode) and turn off the built in typescript support because it will be confusing as it will show the inferred typescript types alongside flow on hover, follow the gif below:
 ![](https://raw.githubusercontent.com/flowtype/flow-for-vscode/1ae5552d149bb41c8173dee552a2975b336e7beb/readme/flow-disable-tsc.gif)
 
+```
+{
+  "flow.useNPMPackagedFlow": true,
+  "flow.useLSP": false // only for flow v>0.75, incompatible with the experimental Language Server Protocol
+}
+```
 ## Webstorm
 The setup should be picked up automatically from the repository's `.eslint.rc.*` and `package.json`. Here is where to look in case something doesn't work as expected:
 **Eslint** - Choose `Webstorm / Preferences` from the main menu and type `eslint` into the seach bar, this will show up all related config sections:
