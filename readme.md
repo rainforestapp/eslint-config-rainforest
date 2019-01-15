@@ -35,3 +35,10 @@ The setup should be picked up automatically from the repository's `.eslint.rc.*`
 2. `Keymap` allows you to setup key shortcuts for fixing lint problems.
 
 **Prettier** - An official Prettier plugin is available starting from version 2018.1. Again go to Preferences but write `prettier` this time. The configuration is under `Languages & Frameworks / JavaScript / Prettier` and the only thing you can do is to point the IDE to the related package folder.
+
+## Atom
+Install the [eslint](https://atom.io/packages/linter-eslint) package:
+1. Click Atom and go to `Preferences` (or hit `Cmd` + `,`).
+2. This should open up a `Settings` tab in your editor. From there click on `Packages` from the left menu.
+3. Search `linter-eslint` and install the package.
+4. Once the package is installed, go to `Settings` and check the box that says `Fix errors on save`.
