@@ -11,7 +11,7 @@ module.exports = {
   root: true,
   parser: '@babel/eslint-parser',
   plugins: ['flowtype', 'react', 'import', 'jsx-a11y', 'react-hooks'],
-  extends: ['prettier'],
+  extends: ['plugin:import/recommended', 'prettier'],
 
   env: {
     browser: true,
@@ -44,6 +44,33 @@ module.exports = {
     'import/first': 'warn',
     'import/no-amd': 'error',
     'import/no-webpack-loader-syntax': 'error',
+    // lots of our legacy code reexports a named export as default. There's no reason to do so and we should fix and enable this rule
+    'import/no-named-as-default': 'warn',
+    'import/namespace': ['error', { allowComputed: true }],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          ['builtin', 'external'],
+          'internal',
+          ['parent', 'sibling', 'index'],
+          'type',
+        ],
+        pathGroups: [
+          { pattern: '{**,.,..}/*.css', group: 'index', position: 'after' },
+          {
+            pattern: 'app/**',
+            group: 'internal',
+          },
+        ],
+        'newlines-between': 'always',
+        pathGroupsExcludedImportTypes: ['type'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
 
     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/forbid-foreign-prop-types': ['error', { allowInPropTypes: true }],
@@ -249,8 +276,11 @@ module.exports = {
     {
       files: ['**/__tests__/*.js'],
       rules: {
-        'import/first': 'off'
-      }
-    }
-  ]
+        'import/first': 'off',
+        // need to figure out how to make these work with mocks
+        'import/namespace': 'off',
+        'import/named': 'off',
+      },
+    },
+  ],
 };
