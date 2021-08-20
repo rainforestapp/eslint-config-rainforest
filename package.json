@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/rainforestapp/eslint-config-rainforest.git"
   },
+  "engines": {
+    "node": "12.19"
+  },
   "scripts": {
     "test": "./node_modules/eslint/bin/eslint.js ./index.js --debug",
     "distribute": "git push origin master && npm publish",
