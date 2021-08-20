@@ -9,32 +9,27 @@
 var restrictedGlobals = require('confusing-browser-globals');
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
-  plugins: ['flowtype', 'react', 'import', 'jsx-a11y'],
-  extends: [
-    'plugin:prettier/recommended',
-    'prettier/flowtype',
-    'prettier/react'
-  ],
+  parser: '@babel/eslint-parser',
+  plugins: ['flowtype', 'react', 'import', 'jsx-a11y', 'react-hooks'],
+  extends: ['prettier'],
 
   env: {
     browser: true,
     commonjs: true,
     es6: true,
     jest: true,
-    node: true
+    node: true,
   },
 
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
+    requireConfigFile: false,
   },
   rules: {
-    'prettier/prettier': ['error', { singleQuote: true }],
-
     // https://github.com/gajus/eslint-plugin-flowtype
     'flowtype/define-flow-type': 'warn',
     'flowtype/use-flow-type': 'warn',
@@ -60,8 +55,8 @@ module.exports = {
       'error',
       {
         allowAllCaps: true,
-        ignore: []
-      }
+        ignore: [],
+      },
     ],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -84,9 +79,9 @@ module.exports = {
           'lifecycle',
           'props',
           'everything-else',
-          'render'
-        ]
-      }
+          'render',
+        ],
+      },
     ],
     // 'react/self-closing-comp': 0, // https://github.com/prettier/prettier/issues/4223#issuecomment-409728137
     'react/no-access-state-in-setstate': 'error',
@@ -95,6 +90,10 @@ module.exports = {
     // we still have usage of this inside hoc, which can't use callback refs (the recommended alternative)
     'react/no-find-dom-node': 'warn',
 
+    // https://reactjs.org/docs/hooks-rules.html#eslint-plugin
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
     'jsx-a11y/accessible-emoji': 'warn',
     'jsx-a11y/alt-text': 'warn',
@@ -102,8 +101,8 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': [
       'warn',
       {
-        aspects: ['noHref', 'invalidHref']
-      }
+        aspects: ['noHref', 'invalidHref'],
+      },
     ],
     'jsx-a11y/aria-activedescendant-has-tabindex': 'warn',
     'jsx-a11y/aria-props': 'warn',
@@ -123,9 +122,7 @@ module.exports = {
     // http://eslint.org/docs/rules/
     'array-callback-return': 'error',
     'default-case': ['error', { commentPattern: '^no default$' }],
-    'dot-location': ['error', 'property'],
     eqeqeq: ['error', 'smart'],
-    'new-parens': 'error',
     'no-array-constructor': 'error',
     'no-caller': 'error',
     'no-cond-assign': ['error', 'except-parens'],
@@ -159,10 +156,10 @@ module.exports = {
           ['&', '|', '^', '~', '<<', '>>', '>>>'],
           ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
           ['&&', '||'],
-          ['in', 'instanceof']
+          ['in', 'instanceof'],
         ],
-        allowSamePrecedence: false
-      }
+        allowSamePrecedence: false,
+      },
     ],
     'no-multi-str': 'error',
     'no-native-reassign': 'error',
@@ -195,24 +192,24 @@ module.exports = {
       {
         allowShortCircuit: true,
         allowTernary: true,
-        allowTaggedTemplates: true
-      }
+        allowTaggedTemplates: true,
+      },
     ],
     'no-unused-labels': 'error',
     'no-unused-vars': [
       'error',
       {
         args: 'none',
-        ignoreRestSiblings: true
-      }
+        ignoreRestSiblings: true,
+      },
     ],
     'no-use-before-define': [
       'error',
       {
         functions: false,
         classes: false,
-        variables: false
-      }
+        variables: false,
+      },
     ],
     'no-useless-concat': 'error',
     'no-useless-constructor': 'error',
@@ -222,15 +219,13 @@ module.exports = {
       {
         ignoreDestructuring: false,
         ignoreImport: false,
-        ignoreExport: false
-      }
+        ignoreExport: false,
+      },
     ],
     'no-with': 'error',
-    'no-whitespace-before-property': 'error',
     'require-yield': 'error',
-    'rest-spread-spacing': ['error', 'never'],
+    'sort-imports': ['error', { ignoreDeclarationSort: true }],
     strict: ['error', 'never'],
-    'unicode-bom': ['error', 'never'],
     'use-isnan': 'error',
     'valid-typeof': 'error',
     'no-restricted-properties': [
@@ -239,16 +234,16 @@ module.exports = {
         object: 'require',
         property: 'ensure',
         message:
-          'Please use import() instead. More info: https://facebook.github.io/create-react-app/docs/code-splitting'
+          'Please use import() instead. More info: https://facebook.github.io/create-react-app/docs/code-splitting',
       },
       {
         object: 'System',
         property: 'import',
         message:
-          'Please use import() instead. More info: https://facebook.github.io/create-react-app/docs/code-splitting'
-      }
+          'Please use import() instead. More info: https://facebook.github.io/create-react-app/docs/code-splitting',
+      },
     ],
-    'getter-return': 'error'
+    'getter-return': 'error',
   },
   overrides: [
     {
