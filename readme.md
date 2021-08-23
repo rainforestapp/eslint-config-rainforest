@@ -23,6 +23,7 @@ add these to your settings file:
   "editor.wordWrapColumn": 120,
   "css.validate": false, // not working for css modules currently
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
 ```
 
