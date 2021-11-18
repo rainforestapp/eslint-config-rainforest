@@ -1,6 +1,6 @@
 {
   "name": "@rainforestqa/eslint-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Rainforest Eslint Config",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "git+https://github.com/rainforestapp/eslint-config-rainforest.git"
   },
   "engines": {
-    "node": "12.19"
+    "node": ">=12.19"
   },
   "scripts": {
     "test": "./node_modules/eslint/bin/eslint.js ./index.js --debug",
