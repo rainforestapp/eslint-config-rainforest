@@ -29,7 +29,6 @@ add these to your settings file:
 
 Also in projects that use flow, it's useful to install [flow for vscode](https://github.com/flowtype/flow-for-vscode)
 
-
 ## Webstorm
 
 The setup should be picked up automatically from the repository's `.eslint.rc.*` and `package.json`. Here is where to look in case something doesn't work as expected:
@@ -39,3 +38,11 @@ The setup should be picked up automatically from the repository's `.eslint.rc.*`
 2. `Keymap` allows you to setup key shortcuts for fixing lint problems.
 
 **Prettier** - An official Prettier plugin is available starting from version 2018.1. Again go to Preferences but write `prettier` this time. The configuration is under `Languages & Frameworks / JavaScript / Prettier` and the only thing you can do is to point the IDE to the related package folder.
+
+# Versioning Policy
+
+- **Patch** release (x.y.z -> x.y.z+1): bugfixes and tooling updates mean that code that previously passed linting **should** continue to pass after the update.
+
+- **Minor** release (x.y.z -> x.y+1.0): a change to an existing rule means that code that previously failed linting **may** now pass, or a new configuration means that code that previously passed linting **should** continue to pass.
+
+- **Major** release (x.y.z -> x+1.0.0): a new rule, or a change to an existing rule, means that code that previously passed linting **will not** pass any more.
