@@ -148,6 +148,7 @@ module.exports = {
 
     // http://eslint.org/docs/rules/
     'array-callback-return': 'error',
+    curly: 'error',
     'default-case': ['error', { commentPattern: '^no default$' }],
     eqeqeq: ['error', 'smart'],
     'no-array-constructor': 'error',
