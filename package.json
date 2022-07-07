@@ -11,9 +11,9 @@
     "node": ">=12.19"
   },
   "scripts": {
-    "test": "./node_modules/eslint/bin/eslint.js ./index.js --debug",
+    "test": "./node_modules/eslint/bin/eslint.js ./index.js ./react.js ./flow.js --debug",
     "distribute": "git push origin master && npm publish",
-    "check": "eslint-config-prettier index.js"
+    "check": "eslint-config-prettier index.js react.js flow.js"
   },
   "author": "Julian Krispel-Samsel",
   "license": "MIT",
