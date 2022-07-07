@@ -2,9 +2,23 @@
 
 To install the eslint plugin simply execute in your terminal:
 
-`yarn add -DE @rainforestqa/eslint-config eslint @babel/eslint-parser eslint-plugin-babel eslint-plugin-flowtype eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react prettier`
+`yarn add -DE @rainforestqa/eslint-config eslint @babel/core @babel/eslint-parser eslint-plugin-babel eslint-plugin-import eslint-plugin-jsx-a11y prettier`
+
+In your eslint configuration, add `@rainforestqa/eslint-config` to `extends`
 
 Import the prettier config (`prettier.config.js`) as outlined in [sharing configurations](https://prettier.io/docs/en/configuration.html#sharing-configurations)
+
+optional:
+
+If using react:
+`yarn add -DE eslint-plugin-react`
+
+In your eslint configuration, add `@rainforestqa/eslint-config-react` to `extends`
+
+If using flow:
+`yarn add -DE eslint-plugin-flowtype`
+
+In your eslint configuration, add `@rainforestqa/eslint-config-flow` to `extends`
 
 # Editor configuration
 
