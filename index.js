@@ -220,7 +220,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/__tests__/*.js'],
+      files: ['**/__tests__/*.js', "**/*.spec.js"],
       rules: {
         'import/first': 'off',
         // need to figure out how to make these work with mocks
