@@ -13,12 +13,12 @@ optional:
 If using react:
 `yarn add -DE eslint-plugin-react`
 
-In your eslint configuration, add `@rainforestqa/eslint-config-react` to `extends`
+In your eslint configuration, add `@rainforestqa/eslint-config/react` to `extends`
 
 If using flow:
 `yarn add -DE eslint-plugin-flowtype`
 
-In your eslint configuration, add `@rainforestqa/eslint-config-flow` to `extends`
+In your eslint configuration, add `@rainforestqa/eslint-config/flow` to `extends`
 
 # Editor configuration
 
