@@ -24,11 +24,12 @@
   "devDependencies": {
     "@babel/core": "7.15.0",
     "@babel/eslint-parser": "7.15.0",
+    "@rainforestqa/eslint-plugin": "^1.0.0",
     "eslint": "7.32.0",
     "eslint-plugin-flowtype": "5.9.0",
     "eslint-plugin-import": "2.24.1",
     "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react": "7.29.3",
     "eslint-plugin-react-hooks": "4.2.0",
     "prettier": "2.3.2"
   },
@@ -42,7 +43,7 @@
     "eslint-plugin-flowtype": "5.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react": ">=7.30.0",
     "eslint-plugin-react-hooks": "4.x",
     "prettier": "2.x"
   }

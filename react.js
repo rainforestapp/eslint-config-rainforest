@@ -1,12 +1,22 @@
 module.exports = {
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', '@rainforestqa/eslint-plugin'],
   rules: {
+    '@rainforestqa/no-dangerous-conditional-literals-in-jsx': ['error'],
+
     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/forbid-foreign-prop-types': ['error', { allowInPropTypes: true }],
     'react/jsx-no-comment-textnodes': 'error',
     'react/jsx-no-duplicate-props': ['error', { ignoreCase: true }],
+    'react/jsx-no-leaked-render': [
+      'error',
+      { validStrategies: ['coerce', 'ternary'] },
+    ],
     'react/jsx-no-target-blank': 'error',
     'react/jsx-no-undef': 'error',
+    'react/jsx-curly-brace-presence': [
+      'error',
+      { props: 'ignore', children: 'never', propElementValues: 'always' },
+    ],
     'react/jsx-pascal-case': [
       'error',
       {
