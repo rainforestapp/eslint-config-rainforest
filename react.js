@@ -24,6 +24,7 @@ module.exports = {
         ignore: [],
       },
     ],
+    'react/jsx-sort-props': ['error', { ignoreCase: true }],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'react/no-danger-with-children': 'error',
