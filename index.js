@@ -172,7 +172,7 @@ module.exports = {
     'no-unused-vars': [
       'error',
       {
-        args: 'none',
+        args: 'after-used',
         ignoreRestSiblings: true,
       },
     ],
@@ -220,7 +220,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/__tests__/*.js', "**/*.spec.js"],
+      files: ['**/__tests__/*.js', '**/*.spec.js'],
       rules: {
         'import/first': 'off',
         // need to figure out how to make these work with mocks
