@@ -173,6 +173,7 @@ module.exports = {
       'error',
       {
         args: 'after-used',
+        varsIgnorePattern: '^_',
         ignoreRestSiblings: true,
       },
     ],
