@@ -219,6 +219,7 @@ module.exports = {
       },
     ],
     'getter-return': 'error',
+    radix: 'error',
   },
   overrides: [
     {
