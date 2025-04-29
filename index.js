@@ -38,6 +38,14 @@ module.exports = {
     'import/first': 'warn',
     'import/no-amd': 'error',
     'import/no-webpack-loader-syntax': 'error',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        ts: 'never',
+      },
+    ],
     // lots of our legacy code reexports a named export as default. There's no reason to do so and we should fix and enable this rule
     'import/no-named-as-default': 'warn',
     'import/namespace': ['error', { allowComputed: true }],
