@@ -1,6 +1,6 @@
 {
   "name": "@rainforestqa/eslint-config",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "description": "Rainforest Eslint Config",
   "main": "index.js",
   "repository": {
